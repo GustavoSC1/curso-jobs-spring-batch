@@ -10,6 +10,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.PlatformTransactionManager;
 
+import com.springbatch.arquivomultiplosformatos.reader.ArquivoClienteTransacaoReader;
+
 @Configuration
 public class LeituraArquivoMultiplosFormatosStepConfig {
 	
@@ -25,7 +27,7 @@ public class LeituraArquivoMultiplosFormatosStepConfig {
 			ItemWriter leituraArquivoMultiplosFormatosItemWriter) {
 		return new StepBuilder("leituraArquivoMultiplosFormatosStep",jobRepository)
 				.chunk(1, platformTransactionManager)
-				.reader(leituraArquivoMultiplosFormatosReader)
+				.reader(new ArquivoClienteTransacaoReader(leituraArquivoMultiplosFormatosReader))
 				.writer(leituraArquivoMultiplosFormatosItemWriter)
 				.build();
 	}
