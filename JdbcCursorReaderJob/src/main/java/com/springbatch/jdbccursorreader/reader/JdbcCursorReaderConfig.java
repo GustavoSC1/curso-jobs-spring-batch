@@ -15,6 +15,9 @@ import com.springbatch.jdbccursorreader.dominio.Cliente;
 public class JdbcCursorReaderConfig {
 	
 	@Bean
+	// O JdbcCursorItemReader utiliza um cursor de banco de dados para iterar sobre os registros um de cada vez.
+	// Recomendado para para conjuntos de dados menores ou quando a simplicidade e a eficiência de uma única consulta 
+	// forem mais importantes.
 	public JdbcCursorItemReader<Cliente> jdbcCursorReader(
 			@Qualifier("appDataSource") DataSource dataSource) {
 		return new JdbcCursorItemReaderBuilder()
