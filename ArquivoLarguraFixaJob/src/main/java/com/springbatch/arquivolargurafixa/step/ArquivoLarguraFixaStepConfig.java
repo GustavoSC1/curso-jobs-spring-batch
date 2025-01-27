@@ -13,7 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.springbatch.arquivolargurafixa.dominio.Cliente;
 
 @Configuration
-public class LeituraArquivoLarguraFixaStepConfig {
+public class ArquivoLarguraFixaStepConfig {
 	
 	@Autowired
 	public JobRepository jobRepository;

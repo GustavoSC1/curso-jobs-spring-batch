@@ -12,7 +12,7 @@ import org.springframework.core.io.Resource;
 import com.springbatch.arquivolargurafixa.dominio.Cliente;
 
 @Configuration
-public class LeituraArquivoLarguraFixaReaderConfig {
+public class ArquivoLarguraFixaReaderConfig {
 	
 	@Bean
 	@StepScope
