@@ -13,7 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 import com.springbatch.arquivodelimitado.dominio.Cliente;
 
 @Configuration
-public class LeituraArquivoDelimitadoStepConfig {
+public class ArquivoDelimitadoStepConfig {
 	
 	@Autowired
 	public JobRepository jobRepository;
