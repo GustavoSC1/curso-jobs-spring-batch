@@ -1,0 +1,15 @@
+SISTEMA INTEGRADO: XPTO 				 DATA: 30/01/2025
+MÓDULO: ORÇAMENTO 						 HORA: 17:01
+			DEMONSTRATIVO ORCAMENTARIO
+----------------------------------------------------------------------------
+CODIGO NOME VALOR
+	 Data Descricao Valor
+----------------------------------------------------------------------------
+
+[44905218] COLEES E MATERIAIS BIBLIOGRFICOS - R$ 8.000,00
+	 [11/05/2020] Livro de Algoritmos - R$ 4.000,00
+	 [12/05/2020] Dicionrios - R$ 4.000,00
+
+
+							  Total: R$ 8.000,00
+							  Código de Autenticação: fkyew6868fewjfhjjewf

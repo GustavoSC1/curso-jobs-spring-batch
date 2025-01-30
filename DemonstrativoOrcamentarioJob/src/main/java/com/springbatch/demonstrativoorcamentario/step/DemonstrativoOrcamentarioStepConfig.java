@@ -4,6 +4,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.repository.JobRepository;
 import org.springframework.batch.core.step.builder.StepBuilder;
 import org.springframework.batch.item.ItemWriter;
+import org.springframework.batch.item.file.MultiResourceItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,6 +12,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.springbatch.demonstrativoorcamentario.dominio.GrupoLancamento;
 import com.springbatch.demonstrativoorcamentario.reader.GrupoLancamentoReader;
+import com.springbatch.demonstrativoorcamentario.writer.DemonstrativoOrcamentarioRodape;
 
 @Configuration
 public class DemonstrativoOrcamentarioStepConfig {
@@ -27,11 +29,15 @@ public class DemonstrativoOrcamentarioStepConfig {
 			//MultiResourceItemReader<GrupoLancamento> demonstrativoOrcamentarioReader,
 			// Esse aqui lê do banco de dados
 			GrupoLancamentoReader demonstrativoOrcamentarioReader,
-			ItemWriter<GrupoLancamento> demonstrativoOrcamentarioWriter) {
+			MultiResourceItemWriter<GrupoLancamento> multiDemonstrativoOrcamentarioWriter,
+			DemonstrativoOrcamentarioRodape rodapeCallback) {
 		return new StepBuilder("demonstrativoOrcamentarioStep", jobRepository)
-				.<GrupoLancamento,GrupoLancamento>chunk(100, platformTransactionManager)
+				.<GrupoLancamento,GrupoLancamento>chunk(1, platformTransactionManager)
 				.reader(demonstrativoOrcamentarioReader)
-				.writer(demonstrativoOrcamentarioWriter)
+				.writer(multiDemonstrativoOrcamentarioWriter)
+				// Adiciona um listener ao Step para executar lógica personalizada durante a execução do job
+				// Obs: @BeforeWrite é um listener no Spring Batch
+				.listener(rodapeCallback)
 				.build();
 	}
 }
