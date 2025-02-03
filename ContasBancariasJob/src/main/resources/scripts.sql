@@ -19,8 +19,8 @@ CREATE table conta (
 );
 
 
-INSERT INTO `cliente` (`nome`, `idade`, `email`, `faixa_salarial`) VALUES ('Mariam Reichert PhD', 56, 'abernier@example.com', '889.2');
-INSERT INTO `cliente` (`nome`, `idade`, `email`, `faixa_salarial`) VALUES ('Kyra Gutmann', 58, 'alexandria.gutmann@example.org', '2084.11');
+INSERT INTO `cliente` (`nome`, `idade`, `email`) VALUES ('Mariam Reichert PhD', 56, 'abernier@example.com');
+INSERT INTO `cliente` (`nome`, `idade`, `email`) VALUES ('Kyra Gutmann', 58, 'alexandria.gutmann@example.org');
 INSERT INTO `cliente` (`nome`, `idade`, `email`, `faixa_salarial`) VALUES ('Mrs. Ashlynn Treutel', 61, 'amani.wuckert@example.net', '395.25');
 INSERT INTO `cliente` (`nome`, `idade`, `email`, `faixa_salarial`) VALUES ('Cassie Breitenberg', 66, 'ankunding.cheyanne@example.net', '407.48');
 INSERT INTO `cliente` (`nome`, `idade`, `email`, `faixa_salarial`) VALUES ('Herman Skiles', 97, 'asimonis@example.net', '522577.31');

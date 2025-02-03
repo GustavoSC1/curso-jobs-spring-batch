@@ -1,10 +1,12 @@
 package com.springbatch.contasbancarias.dominio;
 
 public enum TipoConta {
-	PRATA, OURO, PLATINA, DIAMANTE;
+	PRATA, OURO, PLATINA, DIAMANTE, INVALIDA;
 	
-	public static TipoConta fromFaixaSalarial(double faixaSalarial) {
-		if (faixaSalarial <= 3000)
+	public static TipoConta fromFaixaSalarial(Double faixaSalarial) {
+		if (faixaSalarial == null)
+			return INVALIDA;
+		else if (faixaSalarial <= 3000)
 			return PRATA;
 		else if (faixaSalarial > 3000 && faixaSalarial <= 5000)
 			return OURO;
