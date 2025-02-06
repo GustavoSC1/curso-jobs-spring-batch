@@ -23,7 +23,7 @@ public class MigrarDadosBancariosStepConfig {
 	public PlatformTransactionManager platformTransactionManager;
 	
 	@Bean
-	private Step migrarDadosBancariosStep(
+	public Step migrarDadosBancariosStep(
 			ItemReader<DadosBancarios> arquivoDadosBancariosReader,
 			ItemWriter<DadosBancarios> bancoDadosBancariosWriter) {
 		return new StepBuilder("migrarDadosBancariosStep", jobRepository)
