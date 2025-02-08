@@ -29,7 +29,7 @@ public class MigrarPessoasStepConfig {
 			ClassifierCompositeItemWriter<Pessoa> pessoaClassifierWriter,
 			FlatFileItemWriter<Pessoa> arquivoPessoasInvalidasWriter) {
 		return new StepBuilder("migrarPessoaStep", jobRepository)
-				.<Pessoa, Pessoa>chunk(1, platformTransactionManager)
+				.<Pessoa, Pessoa>chunk(10000, platformTransactionManager)
 				.reader(arquivoPessoaReader)
 				.writer(pessoaClassifierWriter)
 				.stream(arquivoPessoasInvalidasWriter)
