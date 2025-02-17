@@ -33,4 +33,11 @@ public class FaturaCartaoCredito {
 		this.transacoes = transacoes;
 	}
 
+	public Double getTotal() {		
+		return transacoes
+				.stream()
+				.mapToDouble(Transacao::getValor)
+				.reduce(0.0, Double::sum);
+	}
+
 }

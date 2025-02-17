@@ -13,6 +13,7 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import com.gustavo.faturacartaocredito.dominio.FaturaCartaoCredito;
 import com.gustavo.faturacartaocredito.reader.FaturaCartaoCreditoReader;
+import com.gustavo.faturacartaocredito.writer.TotalTransacoesFooterCallback;
 import com.gustavo.faturacartaocredito.dominio.Transacao;
 
 @Configuration
@@ -28,12 +29,14 @@ public class FaturaCartaoCreditoStepConfig {
 	public Step faturaCartaoCreditoStep(
 			ItemStreamReader<Transacao> lerTransacoesReader,
 			ItemProcessor<FaturaCartaoCredito, FaturaCartaoCredito> carregarDadosClienteProcessor,
-			ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito) {
+			ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito,
+			TotalTransacoesFooterCallback listener) {
 		return new StepBuilder("faturaCartaoCreditoStep", jobRepository)
 				.<FaturaCartaoCredito, FaturaCartaoCredito>chunk(1, platformTransactionManager)
 				.reader(new FaturaCartaoCreditoReader(lerTransacoesReader))
 				.processor(carregarDadosClienteProcessor)
 				.writer(escreverFaturaCartaoCredito)
+				.listener(listener)
 				.build();
 	}
 

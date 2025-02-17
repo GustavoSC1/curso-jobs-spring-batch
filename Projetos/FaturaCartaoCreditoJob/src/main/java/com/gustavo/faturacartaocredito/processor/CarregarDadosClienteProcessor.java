@@ -17,6 +17,7 @@ public class CarregarDadosClienteProcessor implements ItemProcessor<FaturaCartao
 	
 	@Override
 	public FaturaCartaoCredito process(FaturaCartaoCredito faturaCartaoCredito) throws Exception {
+		System.out.println("Cliente ID: "+faturaCartaoCredito.getCliente().getId());
 		String uri = String.format("http://my-json-server.typicode.com/giuliana-bezerra/demo/profile/%d", faturaCartaoCredito.getCliente().getId());
 		ResponseEntity<Cliente> response = restTemplate.getForEntity(uri, Cliente.class);
 		
