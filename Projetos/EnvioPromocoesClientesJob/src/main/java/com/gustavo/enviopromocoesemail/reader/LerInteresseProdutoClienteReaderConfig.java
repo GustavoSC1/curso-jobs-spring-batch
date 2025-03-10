@@ -8,6 +8,7 @@ import javax.sql.DataSource;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.database.builder.JdbcCursorItemReaderBuilder;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -18,6 +19,7 @@ import com.gustavo.enviopromocoesemail.dominio.Produto;
 @Configuration
 public class LerInteresseProdutoClienteReaderConfig {
 	
+	@Bean
 	public JdbcCursorItemReader<InteresseProdutoCliente> lerInteresseProdutoClienteReader(
 			@Qualifier("appDataSource") DataSource dataSource){
 		return new JdbcCursorItemReaderBuilder<InteresseProdutoCliente>()
